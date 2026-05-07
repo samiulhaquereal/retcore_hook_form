@@ -58,7 +58,24 @@ TextFormField(
 )
 ```
 
-### 3. Handle Submission
+### 3. Custom Widgets (Non-Text)
+
+For widgets like Checkboxes, Dropdowns, or Sliders, use the `onChanged` and `setValue` methods.
+
+```dart
+final field = form.register("terms");
+
+Checkbox(
+  value: form.getValue("terms") ?? false,
+  onChanged: (val) {
+    setState(() {
+      form.setValue("terms", val);
+    });
+  },
+)
+```
+
+### 4. Handle Submission
 
 ```dart
 ElevatedButton(
